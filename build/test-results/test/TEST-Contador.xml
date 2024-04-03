@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Contador" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-29T21:58:36" hostname="KEDYN-MOLINA.local" time="26.019">
+  <properties/>
+  <testcase name="Incrementar cuenta del contador" classname="Contador" time="26.019"/>
+  <system-out><![CDATA[|-- Dado el usuario Kedyn esta en App Contador
+|---- Kedyn clicks on Card contador
+|-- Cuando el usuario incrementa la cuenta 3 veces
+|---- Click en el contador
+|------ Kedyn clicks on contador
+|------ Kedyn clicks on contador
+|------ Kedyn clicks on contador
+|-- Entonces el usuario deberia ver la cuenta en 3
+|---- Then La cuenta actual should be '3'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
