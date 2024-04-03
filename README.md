@@ -20,6 +20,6 @@ y se debe ejecutar por aparte el appium inspector
 
 ```
 
-Creado 29 de septiembre de 2023
+Creado 03 de abril de 2024
 
 Kedyn Molina V.
