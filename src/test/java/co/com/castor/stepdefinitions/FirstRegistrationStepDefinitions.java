@@ -10,10 +10,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static co.com.castor.userinterface.ArtistPanelPage.BTN_CLOSE;
+import static co.com.castor.userinterface.ArtistPanelPage.BTN_CONT;
 import static co.com.castor.userinterface.LoginPage.TITULOS_APP;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -51,7 +54,10 @@ public class FirstRegistrationStepDefinitions {
     @When("selecciona la lista de artistas")
     public void seleccionArtistas() {
         user.attemptsTo(
-                SeleccionarArtistasPorLote.conTotal(16)
+                SeleccionarArtistasPorLote.conTotal(16),
+                Click.on(BTN_CONT),
+                Wait.theSeconds(10),
+                Click.on(BTN_CLOSE)
         );
         user.remember("textHomeIsPresent", HomeQuestions.isDisplayedTextHome());
     }
