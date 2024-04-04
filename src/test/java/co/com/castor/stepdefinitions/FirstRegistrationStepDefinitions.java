@@ -1,7 +1,9 @@
 package co.com.castor.stepdefinitions;
 
+import co.com.castor.questions.HomeQuestions;
 import co.com.castor.questions.RegisterQuestions;
 import co.com.castor.tasks.Register;
+import co.com.castor.tasks.SeleccionarArtistasPorLote;
 import co.com.castor.utils.Wait;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -46,10 +48,20 @@ public class FirstRegistrationStepDefinitions {
         );
         user.remember("textWelcomeIsPresent", RegisterQuestions.isDisplayedTextWelcome());
     }
+    @When("selecciona la lista de artistas")
+    public void seleccionArtistas() {
+        user.attemptsTo(
+                SeleccionarArtistasPorLote.conTotal(16)
+        );
+        user.remember("textHomeIsPresent", HomeQuestions.isDisplayedTextHome());
+    }
+
 
     @Then("debe ver la pantalla de bienvenida")
     public void debeVerLaPantallaDeBienvenida() {
-        assertThat("Notificacion presente en Encabezado",
+        assertThat("Mensaje de bienvenida",
                 user.recall("textWelcomeIsPresent"),equalTo(true));
+        assertThat("Texto para validar que esta en el home",
+                user.recall("textHomeIsPresent"),equalTo(true));
     }
 }
