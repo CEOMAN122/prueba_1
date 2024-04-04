@@ -52,6 +52,7 @@ public class Register implements Task {
                 WaitUntil.the(TITLE_COOKIES, isVisible()).forNoMoreThan(12).seconds(),
                 Click.on(BTN_ACEPTAR),
                 WaitUntil.the(TITLE_WELCOME, isVisible()).forNoMoreThan(3).seconds()
+
         );
 
     }

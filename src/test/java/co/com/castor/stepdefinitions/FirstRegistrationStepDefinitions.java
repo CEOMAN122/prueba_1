@@ -1,5 +1,6 @@
 package co.com.castor.stepdefinitions;
 
+import co.com.castor.questions.RegisterQuestions;
 import co.com.castor.tasks.Register;
 import co.com.castor.utils.Wait;
 import io.cucumber.java.Before;
@@ -14,6 +15,9 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import static co.com.castor.userinterface.LoginPage.TITULOS_APP;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class FirstRegistrationStepDefinitions {
@@ -40,10 +44,12 @@ public class FirstRegistrationStepDefinitions {
         user.attemptsTo(
                 Register.withCredentialDefault(usuario,password)
         );
+        user.remember("textWelcomeIsPresent", RegisterQuestions.isDisplayedTextWelcome());
     }
 
     @Then("debe ver la pantalla de bienvenida")
     public void debeVerLaPantallaDeBienvenida() {
-        // Verifica la presencia de elementos que indiquen que la pantalla de bienvenida está visible
+        assertThat("Notificacion presente en Encabezado",
+                user.recall("textWelcomeIsPresent"),equalTo(true));
     }
 }
