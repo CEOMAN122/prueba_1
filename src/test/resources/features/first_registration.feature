@@ -2,7 +2,6 @@ Feature: Como usuario de la aplicación deseo registrarme por primera vez
 
   @register
   Scenario: registro exitoso
-    Given el "usuario" quiere registrarse por primera vez
-    When  ingresa sus credenciales correctas correo: monologuiza80@gmail.com and password: 12345
-    And   completa la información solicitada y acepta terminos y condiciones
-    Then debe ver la pantalla de bienvenida
+    Given el usuario Manuel esta en App Deezer
+    When  completa el registro con los datos user: pruebacastor@gmail.com and password: 12345678
+    Then  debe ver la pantalla de bienvenida

@@ -22,4 +22,4 @@ y se debe ejecutar por aparte el appium inspector
 
 Creado 03 de abril de 2024
 
-Kedyn Molina V.
+Manuel Cubides.
